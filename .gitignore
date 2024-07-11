@@ -2,11 +2,14 @@
 
 # dependencies
 node_modules/
+assets/
 
 # Expo
 .expo/
 dist/
 web-build/
+.vscode/
+.gitignore
 
 # Native
 *.orig.*
@@ -33,3 +36,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# firebase
+firebase.json
