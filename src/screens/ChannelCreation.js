@@ -37,7 +37,7 @@ const ChannelCreation = ({ navigation }) => {
 
     const _handleTitleChange = title => {
         setTitle(title);
-        setErrorMessage(title.trim() ? '' : 'Please enter the title.');
+        setErrorMessage(title.trim() ? '' : '제목을 입력해주세요.');
     };
 
     const _handleCreateButtonPress = async () => {
@@ -67,7 +67,7 @@ const ChannelCreation = ({ navigation }) => {
                         descriptionRef.current.focus();
                     }}
                     onBlur={() => setTitle(title.trim())}
-                    placeholder="Title"
+                    placeholder="제목"
                     returnKeyType="next"
                     maxLength={20}
                 />
@@ -81,13 +81,13 @@ const ChannelCreation = ({ navigation }) => {
                         _handleCreateButtonPress();
                     }}
                     onBlur={() => setDescription(description.trim())}
-                    placeholder="Description"
+                    placeholder="설명"
                     returnKeyType="done"
                     maxLength={40}
                 />
                 <ErrorText>{errorMessage}</ErrorText>
                 <Button 
-                    title="Create" 
+                    title="만들기" 
                     onPress={_handleCreateButtonPress}
                     disabled={disabled} 
                 />

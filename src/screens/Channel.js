@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect, useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
 import { Alert } from 'react-native';
-import { GiftedChat, Send } from 'react-native-gifted-chat';
+import { GiftedChat, Send, InputToolbar, Bubble } from 'react-native-gifted-chat';
 import { MaterialIcons } from '@expo/vector-icons';
 import { createMessage, getCurrentUser, app } from '../utils/firebase';
 import {
@@ -41,6 +41,45 @@ const SendButton = props => {
                 }
             />
         </Send>
+    );
+};
+
+const renderInputToolbar = props => {
+    return (
+        <InputToolbar
+            {...props}
+            containerStyle={{
+                borderTopWidth: 2,
+                margin: 5,
+                borderRadius: 20,
+                borderColor: '#eee',
+                backgroundColor: '#eee'
+            }}
+        />
+    );
+};
+
+const renderBubble = props => {
+    return (
+        <Bubble
+            {...props}
+            wrapperStyle={{
+                right: {
+                    backgroundColor: '#0084ff'
+                },
+                left: {
+                    backgroundColor: '#FFFA99'
+                }
+                }}
+                textStyle={{
+                right: {
+                    color: '#fff'
+                },
+                left: {
+                    color: '#000'
+                }
+            }}
+        />
     );
 };
 
@@ -85,7 +124,7 @@ const Channel = ({ navigation, route }) => {
                 listViewProps={{
                     style: { backgroundColor: theme.background },
                 }}
-                placeholder="Enter a message..."
+                placeholder="메시지..."
                 messages={messages}
                 user={{ _id: uid, name, avatar: photoUrl }}
                 onSend={_handleMessageSend}
@@ -96,9 +135,12 @@ const Channel = ({ navigation, route }) => {
                     textContentType: 'none', // iOS only
                     underlineColorAndroid: 'transparent', // Android only
                 }}
-                multiline={false}
+                isTyping
+                multiline={true}
                 renderUsernameOnMessage={true}
                 scrollToBottom={true}
+                renderBubble={renderBubble}
+                renderInputToolbar={renderInputToolbar}
                 renderSend={props => <SendButton {...props} />}
             />
         </Container>

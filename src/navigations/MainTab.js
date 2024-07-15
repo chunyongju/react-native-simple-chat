@@ -22,11 +22,11 @@ const MainTab = ({ navigation, route }) => {
     const theme = useContext(ThemeContext);
 
     useEffect(() => {
-        const title = getFocusedRouteNameFromRoute(route) ?? 'Channels';
+        const title = getFocusedRouteNameFromRoute(route) ?? '대화';
         navigation.setOptions({
         headerTitle: title,
         headerRight: () =>
-            title === 'Channels' && (
+            title === '대화' && (
                     <MaterialIcons
                         name="add"
                         size={26}
@@ -46,7 +46,7 @@ const MainTab = ({ navigation, route }) => {
             }}
         >
             <Tab.Screen 
-                name="Channels" 
+                name="대화" 
                 component={ChannelList} 
                 options={{
                     tabBarIcon: ({ focused }) =>
@@ -55,6 +55,7 @@ const MainTab = ({ navigation, route }) => {
                             name: focused ? 'chat-bubble' : 'chat-bubble-outline',
                         }),
                         headerShown: false,
+                        headerTitle: '대화',
                 }}
             />
             <Tab.Screen 

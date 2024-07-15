@@ -46,7 +46,7 @@ const Login = ({ navigation }) => {
         const changedEmail = removeWhitespace(email);
         setEmail(changedEmail);
         setErrorMessage(
-            validateEmail(changedEmail) ? '' : 'Please verify your email.'
+            validateEmail(changedEmail) ? '' : 'Email을 입력해주세요.'
         );
     };
 
@@ -78,7 +78,7 @@ const Login = ({ navigation }) => {
                     value={email}
                     onChangeText={_handleEmailChange}
                     onSubmitEditing={() => passwordRef.current.focus()}
-                    placeholder="Email"
+                    placeholder="이메일"
                     returnKeyType="next"
                 />
                 <Input
@@ -87,7 +87,7 @@ const Login = ({ navigation }) => {
                     value={password}
                     onChangeText={_handlePasswordChange}
                     onSubmitEditing={_handleLoginButtonPress}
-                    placeholder="Password"
+                    placeholder="비밀번호"
                     returnKeyType="done"
                     isPassword
                 />
@@ -98,7 +98,7 @@ const Login = ({ navigation }) => {
                     disabled={disabled} 
                 />
                 <Button
-                    title="Sign up with email"
+                    title="회원가입"
                     onPress={() => navigation.navigate('Signup')}
                     isFilled={false}
                 />

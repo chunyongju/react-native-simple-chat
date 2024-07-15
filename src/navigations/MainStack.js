@@ -20,7 +20,7 @@ const MainStack = () => {
             }}
         >
             <Stack.Screen name="Main" component={MainTab} />
-            <Stack.Screen name="Channel Creation" component={ChannelCreation} />
+            <Stack.Screen name="Channel Creation" component={ChannelCreation}  options={{ headerTitle: '대화 만들기' }} />
             <Stack.Screen name="Channel" component={Channel} />
         </Stack.Navigator>
     );
